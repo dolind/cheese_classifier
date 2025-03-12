@@ -11,7 +11,7 @@ credentials = os.getenv("HF_TOKEN")
 
 if credentials is None:
     raise ValueError("HF_TURN_CREDENTIALS secret not found!")
-credentials = get_hf_turn_credentials(token=None)
+credentials = get_hf_turn_credentials(token=credentials)
 # Load classification models
 models = {
     'base': load_learner('models/base.pkl'),
