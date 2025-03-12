@@ -6,6 +6,11 @@ import gradio as gr
 from fastrtc import Stream, AdditionalOutputs, get_hf_turn_credentials
 from fastai.vision.all import *
 
+# Retrieve the secret stored in HF Spaces
+credentials = os.getenv("HF_TOKEN")
+
+if credentials is None:
+    raise ValueError("HF_TURN_CREDENTIALS secret not found!")
 credentials = get_hf_turn_credentials()
 # Load classification models
 models = {
