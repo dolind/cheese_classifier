@@ -1,6 +1,7 @@
 ---
 title: A Cheese Classifier
 sdk: gradio
+article="<p style='text-align: center'><a href='https://www.storymelange.com/posts/projects/cheese_classifier/meet-the-cheese.html' target='_blank'>Blog post</a></p>"
 app_file: app_cloud/app.py
 requirements_file: app_cloud/requirements.txt
 ---
