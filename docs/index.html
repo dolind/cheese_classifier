@@ -13,35 +13,19 @@
     <p>Prediction: <span id="prediction">Waiting...</span></p>
 
     <video id="webcam" autoplay playsinline width="224" height="224"></video>
+
     <script>
-        let FRAME_SKIP = 1; // Start with no skipping, dynamically adjusted
+        let FRAME_SKIP = 1;  // Dynamically adjust frame skipping
         let frameCounter = 0;
-        const TARGET_FPS = 30; // Desired FPS
+        const TARGET_FPS = 30;  // Desired FPS
         let session;
 
-
         const classNames = [
-            "Camembert",
-            "Roquefort",
-            "Comté",
-            "Époisses de Bourgogne",
-            "Tomme de Savoie",
-            "Bleu d’Auvergne",
-            "Brie de Meaux",
-            "Mimolette",
-            "Munster",
-            "Livarot",
-            "Pont-l’Évêque",
-            "Reblochon",
-            "Chabichou du Poitou",
-            "Valençay",
-            "Pélardon",
-            "Fourme d’Ambert",
-            "Selles-sur-Cher",
-            "Cantal",
-            "Neufchâtel",
-            "Banon",
-            "Gruyere"
+            "Camembert", "Roquefort", "Comté", "Époisses de Bourgogne",
+            "Tomme de Savoie", "Bleu d’Auvergne", "Brie de Meaux", "Mimolette",
+            "Munster", "Livarot", "Pont-l’Évêque", "Reblochon", "Chabichou du Poitou",
+            "Valençay", "Pélardon", "Fourme d’Ambert", "Selles-sur-Cher",
+            "Cantal", "Neufchâtel", "Banon", "Gruyere"
         ];
 
         async function loadModel() {
@@ -105,6 +89,10 @@
         }
 
         function softmax(logits) {
+            if (!logits) {
+                console.error("Error: logits is undefined.");
+                return [];
+            }
             const maxLogit = Math.max(...logits);
             const expLogits = logits.map(l => Math.exp(l - maxLogit));
             const sumExp = expLogits.reduce((a, b) => a + b, 0);
