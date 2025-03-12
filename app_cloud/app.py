@@ -8,9 +8,9 @@ from fastai.vision.all import *
 
 # Load classification models
 models = {
-    'base': load_learner('../models/base.pkl'),
-    'tiny': load_learner('../models/tiny.pkl'),
-    'resnet': load_learner('../models/resnet.pkl')
+    'base': load_learner('models/base.pkl'),
+    'tiny': load_learner('models/tiny.pkl'),
+    'resnet': load_learner('models/resnet.pkl')
 }
 
 frame_counter = 0

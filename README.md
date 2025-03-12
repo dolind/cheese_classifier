@@ -26,3 +26,5 @@ https://www.storymelange.com/cheese_classifier/p
 To run with github pages the model must be added to git without git lfs.
 
 Github has a 100MB file size limit.
+
+To avoid git issues, i work on a local branch `hf-branch` and push to huggingface with `git push space hf-branch:main`
