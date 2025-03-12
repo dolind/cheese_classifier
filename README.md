@@ -2,7 +2,6 @@
 title: A Cheese Classifier
 sdk: gradio
 app_file: app_cloud/app.py
-python_version: 3.10
 requirements_file: app_cloud/requirements.txt
 ---
 
