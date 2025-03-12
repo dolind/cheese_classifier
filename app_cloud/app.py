@@ -10,7 +10,7 @@ from fastai.vision.all import *
 credentials = os.getenv("HF_TOKEN")
 
 if credentials is None:
-    raise ValueError("HF_TURN_CREDENTIALS secret not found!")
+    raise ValueError("HF_TOKEN secret not found!")
 credentials = get_hf_turn_credentials(token=credentials)
 # Load classification models
 models = {
