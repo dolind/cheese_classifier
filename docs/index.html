@@ -12,7 +12,7 @@
     <p>Inference Time: <span id="inferenceTime">0</span> ms</p>
     <p>Prediction: <span id="prediction">Waiting...</span></p>
 
-    <video id="webcam" autoplay playsinline width="224" height="224"></video>
+    <video id="webcam" autoplay playsinline width="256" height="256"></video>
 
     <script>
         let FRAME_SKIP = 1;  // Dynamically adjust frame skipping
@@ -40,10 +40,10 @@
             const tempCanvas = document.createElement("canvas");
             const ctx = tempCanvas.getContext("2d");
 
-            tempCanvas.width = 224;
-            tempCanvas.height = 224;
-            ctx.drawImage(video, 0, 0, 224, 224);
-            const imageData = ctx.getImageData(0, 0, 224, 224);
+            tempCanvas.width = 256;
+            tempCanvas.height = 256;
+            ctx.drawImage(video, 0, 0, 256, 256);
+            const imageData = ctx.getImageData(0, 0, 256, 256);
 
             // Convert to ONNX tensor format
             const tensor = preprocessImage(imageData);
@@ -70,7 +70,7 @@
         }
 
         function preprocessImage(imageData) {
-            const tensor = new Float32Array(1 * 3 * 224 * 224);
+            const tensor = new Float32Array(1 * 3 * 256 * 256);
             const mean = [0.485, 0.456, 0.406];
             const std = [0.229, 0.224, 0.225];
 
@@ -79,13 +79,13 @@
                 let g = (imageData.data[i + 1] / 255 - mean[1]) / std[1];
                 let b = (imageData.data[i + 2] / 255 - mean[2]) / std[2];
 
-                let index = (i / 4) % (224 * 224);
+                let index = (i / 4) % (256 * 256);
                 tensor[index] = r;
-                tensor[index + 224 * 224] = g;
-                tensor[index + 2 * 224 * 224] = b;
+                tensor[index + 256 * 256] = g;
+                tensor[index + 2 * 256 * 256] = b;
             }
 
-            return new ort.Tensor("float32", tensor, [1, 3, 224, 224]);
+            return new ort.Tensor("float32", tensor, [1, 3, 256, 256]);
         }
 
         function softmax(logits) {
@@ -109,8 +109,8 @@
             }
             // Access the webcam
             navigator.mediaDevices.getUserMedia({
-                    video: isMobile() ? { width: 224, height: 224, facingMode: { exact: "environment" } }
-                                      : { width: 224, height: 224 } // Default for desktops
+                    video: isMobile() ? { width: 256, height: 256, facingMode: { exact: "environment" } }
+                                      : { width: 256, height: 256 } // Default for desktops
                 })
                 .then(stream => {
                     video.srcObject = stream;
