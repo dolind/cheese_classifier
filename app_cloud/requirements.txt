@@ -1,4 +1,3 @@
 gradio
 fastai
-fastrtc
-opencv-python
+numpy
