@@ -11,7 +11,7 @@ credentials = os.getenv("HF_TOKEN")
 
 if credentials is None:
     raise ValueError("HF_TURN_CREDENTIALS secret not found!")
-credentials = get_hf_turn_credentials(credentials)
+credentials = get_hf_turn_credentials(token=None)
 # Load classification models
 models = {
     'base': load_learner('models/base.pkl'),
@@ -65,6 +65,7 @@ def process_frame(image, model_name):
 # Gradio Streaming
 stream = Stream(
     handler=process_frame,
+    rtc_configuration=credentials,
     modality="video",
     mode="send-receive",
     additional_inputs=[
