@@ -3,9 +3,10 @@ os.system("pip install -r app_cloud/requirements.txt")
 
 
 import gradio as gr
-from fastrtc import Stream, AdditionalOutputs
+from fastrtc import Stream, AdditionalOutputs, get_hf_turn_credentials
 from fastai.vision.all import *
 
+credentials = get_hf_turn_credentials()
 # Load classification models
 models = {
     'base': load_learner('models/base.pkl'),
