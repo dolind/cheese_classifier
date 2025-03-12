@@ -1,3 +1,15 @@
 /working/
 /cheese/
 /cheese.zip
+/.ipynb_checkpoints/01_intro_and_data-checkpoint.ipynb
+/.ipynb_checkpoints/02_data_cleaning-checkpoint.ipynb
+/.ipynb_checkpoints/03_fast_iterations_resnet32-checkpoint.ipynb
+/.ipynb_checkpoints/04_increasing_size_resnet-checkpoint.ipynb
+/.ipynb_checkpoints/05_bigger_models_convnext-checkpoint.ipynb
+/.ipynb_checkpoints/06_inference_and_deployment-checkpoint.ipynb
+/.idea/inspectionProfiles/profiles_settings.xml
+/.idea/.gitignore
+/.idea/cheese_classifier.iml
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/vcs.xml
