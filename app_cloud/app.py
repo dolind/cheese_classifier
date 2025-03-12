@@ -1,3 +1,7 @@
+import os
+os.system("pip install -r app_cloud/requirements.txt")
+
+
 import gradio as gr
 from fastrtc import Stream, AdditionalOutputs
 from fastai.vision.all import *
