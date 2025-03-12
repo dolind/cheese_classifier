@@ -66,6 +66,6 @@ with gr.Blocks() as demo:
 
         dep = input_img.stream(process_frame, [input_img, model_select],
                                [prediction_output, inference_time_output],
-                               time_limit=30, stream_every=stream_every_dynamic, concurrency_limit=30)
+                               time_limit=30, stream_every=stream_every_dynamic, concurrency_limit=1)
 
 demo.launch()
