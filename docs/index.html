@@ -29,7 +29,7 @@
         ];
 
         async function loadModel() {
-            session = await ort.InferenceSession.create("model.onnx");
+            session = await ort.InferenceSession.create("resnet.onnx");
         }
 
         async function classifyFrame() {
