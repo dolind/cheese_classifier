@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Webcam Classification with ONNX</title>
+    <title>Cheese Classification with ONNX</title>
     <script src="https://cdn.jsdelivr.net/npm/onnxruntime-web/dist/ort.min.js"></script>
 </head>
 <body>
@@ -104,8 +104,14 @@
 
             const video = document.getElementById("webcam");
 
+            function isMobile() {
+                return /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+            }
             // Access the webcam
-            navigator.mediaDevices.getUserMedia({ video: { width: 224, height: 224, facingMode: { exact: "environment" }  },  })
+            navigator.mediaDevices.getUserMedia({
+                    video: isMobile() ? { width: 224, height: 224, facingMode: { exact: "environment" } }
+                                      : { width: 224, height: 224 } // Default for desktops
+                })
                 .then(stream => {
                     video.srcObject = stream;
                 });
